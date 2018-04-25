@@ -1,0 +1,12 @@
+deploy:
+  provider: script
+  script:
+  - scp -q -o "StrictHostKeyChecking no" -i id_rsa *.php root@$REMOTE_HOST:/var/www/html/
+  on:
+    branch: master
+env:
+  global:
+    secure: tz3AYG9YyBIhDXUv4Tp9KK4p3YiuDSbq8BVOi+U3O/YVzKxDyBv0JziYwpSD9BYWQrbIHWnvNYMnt2byj3A4kfThMhwOAyQxbJi6EPfyPy7wXe0LL6lxx/sFR+rCmDBLjkhM8sE2O6ufU7DjG2FbToGFhaVxDLheOYxyPgVZ4Ts+ncbB3Dc1WshNXRTBhjoj29bRpL7wQ1mP7sigGHbdQRf/yOvMGfih1B0z9Yx9v4D5fHzL7+vpZobcfG9W1aG9oOWoGmuYzQWvUOjY5+2/KW2zBNfakCeDgevGpH/bOhs1iFj5GSmsf3MWQOSqqrYbfSe8riYnvLZjU073sJWldWjhFNlTlxcnGDDrBLbWRkGlJujwcgcKpqAqlPGkQoAaYsz2syZPggOmA95HHlL41fkueJ1+v7MtH1HyQHB4qjDAzv/bDu3Zpry64LLPvwkmHjjXl87nwXvMOD30C5HFxbtRlPitZGd1VKwesSV41iDdgoHjaVqcRjaV3WIh6VlN+9qA2dhO480ky25ehHiFpmqkC6z9p3nVg/2gvzuq10F6pJbH4tl5RsQ2I0JymY3pDSfMKWJLAhmF/+u4iBUbz/xajlRjhpOP02B0LnWgfev7Y6DnLWf6dwlKfQ7cCl7dPRA/pvOetXLjZSSpxoBlCoHtdL6F5a2kqBCHzgG2VNc=
+before_install:
+- openssl aes-256-cbc -K $encrypted_f62e777096d6_key -iv $encrypted_f62e777096d6_iv
+  -in id_rsa.enc -out id_rsa -d
