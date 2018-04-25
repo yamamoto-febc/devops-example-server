@@ -1,10 +1,10 @@
 language: php
 script:
-  - echo "Start CI"
+- echo "Start CI"
 deploy:
   provider: script
   script:
-    - bash deploy.sh
+  - bash deploy.sh
   on:
     branch: master
 env:
