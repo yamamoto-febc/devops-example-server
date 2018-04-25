@@ -4,9 +4,7 @@ script:
 deploy:
   provider: script
   script:
-  - chmod 0600 id_rsa
-  - echo -q -o "StrictHostKeyChecking no" -i id_rsa *.php root@$REMOTE_HOST:/var/www/html/
-  - scp -q -o "StrictHostKeyChecking no" -i id_rsa *.php root@$REMOTE_HOST:/var/www/html/
+    - bash deploy.sh
   on:
     branch: master
 env:
