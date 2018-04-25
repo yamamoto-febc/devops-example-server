@@ -1,4 +1,6 @@
 language: php
+script:
+  - echo "Start CI"
 deploy:
   provider: script
   script:
